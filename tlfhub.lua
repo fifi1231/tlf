@@ -1,37 +1,29 @@
-local Luxtl = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Luxware-UI-Library/main/Source.lua"))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Rayfield Example Window",
+   LoadingTitle = "Rayfield Interface Suite",
+   LoadingSubtitle = "by Sirius",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
 
-local Luxt = Luxtl.CreateWindow("Wisteria GUI", 6105620301)
-
-local mainTab = Luxt:Tab("Auto-Farm", 6087485864)
-local teleportsTab = Luxt:Tab("Teleports")
-local autoQTab = Luxt:Tab("Auto-Quest")
-local combatTab = Luxt:Tab("Combat")
-local creditsTab = Luxt:Tab("Credits")
-local cf = creditsTab:Section("Main Credits")
-cf:Credit("Luxt: Main Coding")
-local cf1 = creditsTab:Section("UI Credits")
-cf1:Credit("xHeptc: UI Library")
-local cf2 = creditsTab:Section("Helping Credits")
-cf2:Credit("Salad: Helping")
-
-local Examples = Luxt:Tab("Examples")
-local ff = Examples:Section("All Examples")
-ff:Label("Welcome to Wisteria GUI")
-ff:Button("TextButton Text", function()
-    print("Clicked!")
-end)
-ff:Toggle("Toggle Me!", function(isToggled)
-    print(isToggled) -- prints true or false
-end)
-ff:KeyBind("Print('Hey') on bind", Enum.KeyCode.R, function() --Enum.KeyCode.R is starting Key
-    print('Hey')
-end)
-ff:TextBox("TextBox Info", "Epic PlaceHolder", function(getText)
-    print(getText) -- Prints whatever player types
-end)
-ff:Slider("WalkSpeed", 16, 503, function(currentValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = currentValue 
-end)
-ff:DropDown("Favorite Food?", {"Pizza", "Burger", "Sandwiches"}, function(food) -- food is chosen item
-    print(food)
-end)
+local Tab = Window:CreateTab("Tab Example") -- Title, Image
+local Section = Tab:CreateSection("Section Example")
